@@ -29,7 +29,6 @@ if ! [[ -d $lokasi_direktoriasal/$direktori_projek ]];then
 	echo -e "berhasil membuat $lokasi_direktoriasal/$lokasi_direktoriprojek"
 fi
 
-if ! [[ -f $file_konfigurasi ]];then
 echo "# copyright © $(date +%Y) endro mei asmoro duitmoro@yahoo.com
 # setelah tanda pagar tidak dibaca
 # lokasi dimana lingkungan virtual python berada.Silakan ubah dan sesuaikan.
@@ -37,7 +36,7 @@ lokasiDirektoripython: /media/mint/dataku1/backup/kodeku/phphai/python
 lokasiDirektoriproyek: $direktori_projek
 fileMp3: /media/mint/dataku1/settingan/cctv_alarm/skripBerguna/mp3buatPlay/Alkhamdulillahproseskompilasisudahselesai.mp3
 volumeSpeaker: 40" >  $file_konfigurasi
-fi
+
 }
 
 if  ! [ -f $file_konfigurasi ];then
@@ -90,7 +89,8 @@ echo -e "${hijau}Silakan tunggu Sebentar cuma 2 detik aja${zero}"
 	sleep 2
 }
 
-buat_kembalikekampung() {
+hapus_filedandirektoritakberguna() {
+# 23.02.2025 19:27:36 hapus direktori dan file tak berguna
 if [[ -d $lokasi_direktoriproyek ]];then
 	cp -rf $lokasi_direktoriasal/dist/* $lokasi_direktoriasal && mv -f $lokasi_direktoriasal/dist/* $lokasi_direktoriproyek
 	echo -e "${kuning}Berhasil duplikat $namafilenya ke $lokasi_direktoriasal dan $lokasi_direktoriproyek${zero}"
@@ -116,20 +116,21 @@ echo -e "Hapus direktori build $lokasi_direktoriasal/__pycache__"
 	rm -rf $lokasi_direktoriasal/__pycache__
 fi
 
-buat_modifvolumespeaker() {
+modif_volumespeaker() {
         # 21.02.2025 beda versi beda kolom sesuaikan jika ada masalah
 		baca_awalamixer=$(amixer sget 'Master'| grep -E '[%]+' | awk '{print $3}')
 		amixer sset 'Master' $volumespeakernya &>/dev/null	
 }
 
 buat_memutaraudiodaftarjamataumenit() {
-daftar_fileyangdiputar=$@
-		buat_modifvolumespeaker
+daftar_fileyangdiputar=$1
+		modif_volumespeaker
 		# 24.11.2024 menghilangkan -l 0 -d 0.6 --pitch 0.6 
 		mpg123  -q --stereo --continue  $daftar_fileyangdiputar &>/dev/null
 		amixer sset 'Master' $baca_awalamixer &>/dev/null
 }
 
+# 23.02.2025 19:29:53 tanpa parameter setelah selesai buat bineri memutar file audio
 if [[ $argumenkedua == "s" ]];then
 echo ""
 else
@@ -143,6 +144,6 @@ echo -e "${hijau}Alkhamdu lillah. Ya Allah semoga program $namafilenya bermanfaa
 	buat_ceknamafileharusdiisi
 	buat_pindahkedirektoritujuan
 	buat_installnya
-	buat_kembalikekampung
+	hapus_filedandirektoritakberguna
 
 
