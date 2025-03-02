@@ -1,0 +1,3 @@
+# ini adalah file konfigurasi buat_bineri pengarang Endro Mei Asmoro copyright ©  2025 
+# setelah tanda pagar adalah komentar saja
+direktoriBineri: projek_/bipit
