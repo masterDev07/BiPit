@@ -50,7 +50,7 @@ To use BiPit, simply run the following command in your terminal:
 ```
 
 This command will generate a binary file named `akudong` in the current 
-directory and in the default project directory, which is `projek_`. 
+directory and in the default project directory, which is `bipit_project`. 
 
 ## Configuration ⚙️
 You can modify the `configuration_binarypython.txt` file to set up the BiPit 
