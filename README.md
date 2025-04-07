@@ -67,7 +67,7 @@ additional options.
    - **Example**: `s`
 
 3. **Third Parameter**: 
-   - **Description**: Use `b` or `d` to run PyInstaller with 1 additional options. ⚙️
+   - **Description**: Use `b` or `d` to run PyInstaller with 1 additional option. ⚙️
    - **Example**: `b` or `d`
 
 ### Example Command
@@ -79,7 +79,7 @@ bipit akudong.py s b
 ```
 
 **Bipit** will process the file `akudong.py`, disable audio playback, 
-and run PyInstaller with 1 additional options like **--onefile**.
+and run PyInstaller with 1 additional option like **--onefile**.
 
 ## Configuration ⚙️
 You can modify the **`configuration_binarypython.txt`** file to set up 
