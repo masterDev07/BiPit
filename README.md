@@ -52,9 +52,36 @@ bipit akudong.py
 This command will generate a binary file named `akudong` in the current 
 directory and in the default project directory, which is `projek_`. 
 
+## Parameters ⚙️
+
+**Bipit** accepts the following parameters :
+
+1. **First Parameter**: 
+   - **Description**: The name of the file to be processed. 📄
+   - **Example**: `akudong.py`
+
+2. **Second Parameter**: 
+   - **Description**: Use `s` to disable audio playback. 🔇
+   - **Example**: `s`
+
+3. **Third Parameter**: 
+   - **Description**: Use `b` or `d` to run PyInstaller without additional options. ⚙️
+   - **Example**: `b` or `d`
+
+### Example Command
+
+To use Bipit with the parameters, use the following command:
+
+```bash
+bipit akudong.py s b
+```
+
+**Bipit** will process the file `akudong.py`, disable audio playback, 
+and run PyInstaller without any additional options.
+
 ## Configuration ⚙️
-You can modify the `configuration_binarypython.txt` file to set up the BiPit 
-program according to your preferences.
+You can modify the `configuration_binarypython.txt` file to set up the 
+BiPit program according to your preferences.
 
 ### Accessing BiPit Globally 🌍
 To make the BiPit command accessible from anywhere in your terminal:
